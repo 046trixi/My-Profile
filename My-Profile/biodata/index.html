@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wulidati Trixiana — Biodata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#FE5BAC; --pink-soft:rgba(254,91,172,.14);
+    --bg:#14101a; --card:#1d1826; --line:#3a2d4a; --text:#f1eaf6; --muted:#a99bb8;
+    --head:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --body:'Inter',system-ui,sans-serif;
+  }
+  :root[data-theme="light"]{
+    --bg:#fff5fa; --card:#ffffff; --line:#f3c6dd; --text:#2a1a26; --muted:#7a5f70; --pink-soft:rgba(254,91,172,.12);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.65}
+  a{color:var(--pink)}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+  .top{display:flex;justify-content:space-between;align-items:center;font-family:var(--head);font-size:.85rem;color:var(--muted)}
+  button.toggle{font:inherit;background:none;color:var(--pink);border:1px solid var(--pink);border-radius:6px;padding:6px 12px;cursor:pointer;transition:.2s}
+  button.toggle:hover,.btn:hover{background:var(--pink);color:#1a0f18;box-shadow:0 0 16px var(--pink)}
+  :focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin:32px 0 40px;padding:28px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,var(--pink-soft),transparent 60%),var(--card)}
+  .avatar{width:132px;height:132px;border-radius:50%;border:4px solid var(--pink);display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:2.2rem;color:var(--pink);background:var(--bg);box-shadow:0 0 24px var(--pink-soft);overflow:hidden}
+  .avatar{position:relative}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .prompt{font-family:var(--head);color:var(--pink);margin:0 0 4px}
+  h1{font-family:var(--head);font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.15;margin:0 0 8px}
+  .hero p{margin:0 0 14px;color:var(--muted)}
+  .btn{display:inline-block;font-family:var(--head);font-size:.9rem;text-decoration:none;border:1px solid var(--pink);border-radius:6px;padding:8px 14px;margin:0 8px 8px 0;transition:.2s}
+
+  section{margin:0 0 20px;padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  h2{font-family:var(--head);font-size:1.15rem;margin:0 0 14px;color:var(--pink)}
+  h2::before{content:"$ ";opacity:.7}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .skill{border:1px solid var(--line);border-radius:8px;padding:12px}
+  .skill b{font-family:var(--head);font-size:.95rem}
+  .bar{height:6px;border-radius:3px;background:var(--line);margin:8px 0 6px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--pink)}
+  .lvl{font-size:.8rem;color:var(--muted)}
+  .badge{display:inline-block;font-family:var(--head);font-size:.82rem;border:1px dashed var(--pink);color:var(--pink);border-radius:999px;padding:3px 12px;margin:0 6px 6px 0}
+  pre{margin:12px 0;padding:14px;background:#0d0a12;color:#f1eaf6;border-radius:8px;border-left:3px solid var(--pink);overflow-x:auto;font-family:var(--head);font-size:.85rem}
+  pre .h{color:var(--pink)}
+  .shot{display:grid;place-items:center;min-height:120px;border:1px dashed var(--line);border-radius:8px;color:var(--muted);text-align:center;padding:12px}
+  .shot img{max-width:100%;border-radius:8px}
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:520px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--head);font-size:.85rem;color:var(--pink)}
+  dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
+  dt{font-family:var(--head);color:var(--muted)}
+  dd{margin:0}
+  footer{text-align:center;color:var(--muted);font-size:.9rem;padding-top:16px}
+  footer a{margin:0 6px}
+
+  @media (max-width:560px){
+    .hero{grid-template-columns:1fr;text-align:center;justify-items:center}
+    .avatar{width:112px;height:112px}
+    section,.hero{padding:18px}
+  }
+  .proj p{margin:8px 0}
+  .projhead{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+  .projhead b{font-size:1.1rem}
+  .proj:hover{transform:none;box-shadow:0 0 18px var(--pink-soft);border-color:var(--pink)}
+  /* ===== Kartu proyek ===== */
+  .sub{color:var(--muted);margin:-6px 0 16px}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;align-items:stretch}
+  .pcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,border-color .25s}
+  .pcard:hover{transform:translateY(-5px);border-color:var(--pink);box-shadow:0 8px 24px var(--pink-soft)}
+  .ptop{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--head);font-size:.75rem;color:var(--muted);margin-bottom:10px}
+  .ptag{color:var(--pink);border:1px solid var(--pink);border-radius:999px;padding:1px 10px;white-space:nowrap}
+  .sub code{font-family:var(--head);color:var(--pink)}
+  .dots i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--pink);margin-right:4px}
+  .dots i:nth-child(2){opacity:.55}
+  .dots i:nth-child(3){opacity:.3}
+  .ptop{padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  .pshot{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line);margin-bottom:12px}
+  .pcard h3{font-family:var(--head);font-size:1.05rem;margin:0 0 10px;line-height:1.35}
+  .pcard h3 .no{color:var(--pink);margin-right:8px}
+  .pcard p{margin:0 0 10px;font-size:.95rem}
+  .pcard .lbl{font-family:var(--head);font-size:.8rem;color:var(--muted)}
+  .pnote{border-left:3px solid var(--pink);background:var(--pink-soft);padding:8px 12px;border-radius:0 8px 8px 0;font-size:.85rem;margin:0 0 12px}
+  .pbtn{margin-top:auto;padding-top:6px}
+  .pcard .btn{background:linear-gradient(135deg,var(--pink),#c93a86);color:#fff;border-color:transparent}
+  .pcard .btn:hover{background:var(--pink);color:#1a0f18}
+  /* ===== Animasi gemes ===== */
+  .wrap{position:relative;z-index:1}
+  .floaties{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .floaties span{position:absolute;bottom:-40px;color:var(--pink);opacity:0;font-size:18px;animation:rise 14s linear infinite}
+  .floaties span:nth-child(1){left:8%;animation-delay:0s}
+  .floaties span:nth-child(2){left:25%;animation-delay:3s;font-size:14px}
+  .floaties span:nth-child(3){left:45%;animation-delay:6s;font-size:22px}
+  .floaties span:nth-child(4){left:62%;animation-delay:1.5s;font-size:16px}
+  .floaties span:nth-child(5){left:80%;animation-delay:8s}
+  .floaties span:nth-child(6){left:93%;animation-delay:11s;font-size:14px}
+  @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.5}90%{opacity:.35}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+
+  .avwrap{position:relative;animation:bob 3.2s ease-in-out infinite;cursor:pointer}
+  .avwrap:hover .avatar{animation:wiggle .6s ease-in-out}
+  .avwrap .sp{position:absolute;font-size:20px;animation:twinkle 2s ease-in-out infinite}
+  .avwrap .sp:nth-child(2){top:-6px;right:-4px}
+  .avwrap .sp:nth-child(3){bottom:4px;left:-10px;font-size:15px;animation-delay:.7s}
+  .avwrap .sp:nth-child(4){top:30px;right:-16px;font-size:13px;animation-delay:1.3s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-10deg)}40%{transform:rotate(9deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(4deg)}}
+  @keyframes twinkle{0%,100%{transform:scale(.6) rotate(0);opacity:.5}50%{transform:scale(1.2) rotate(20deg);opacity:1}}
+
+  h1::after{content:"_";color:var(--pink);animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  .btn:hover{transform:translateY(-3px) scale(1.06)}
+  .btn:active{transform:scale(.95)}
+  .skill{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+  .skill:hover{transform:translateY(-4px) rotate(-1.5deg)}
+  .badge{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+  .badge:hover{transform:scale(1.15) rotate(-4deg)}
+
+  .js .bar i{transform:scaleX(0);transform-origin:left}
+  .js .in .bar i{transform:scaleX(1);transition:transform 1s cubic-bezier(.34,1.56,.64,1)}
+  .js .in .skill:nth-child(2) .bar i{transition-delay:.15s}
+  .js .in .skill:nth-child(3) .bar i{transition-delay:.3s}
+  .js .in .skill:nth-child(4) .bar i{transition-delay:.45s}
+
+  .beat{display:inline-block;color:var(--pink);animation:beat 1.2s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.35)}30%{transform:scale(1)}45%{transform:scale(1.25)}}
+
+  .pop{position:fixed;z-index:9;pointer-events:none;color:var(--pink);font-size:20px;animation:pop .9s ease-out forwards}
+  @keyframes pop{to{transform:translate(var(--dx),var(--dy)) scale(1.4) rotate(var(--r));opacity:0}}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .js .bar i{transform:none}
+    .floaties{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="floaties" aria-hidden="true"><span>♥</span><span>✦</span><span>♥</span><span>✦</span><span>♥</span><span>✦</span></div>
+<div class="wrap">
+
+  <div class="top">
+    <span>046trixi@portfolio:~</span>
+    <button class="toggle" id="theme" type="button">Mode terang</button>
+  </div>
+
+  <header class="hero">
+    <!-- Ganti isi .avatar dengan: <img src="foto.jpg" alt="Foto Wulidati Trixiana"> -->
+    <div class="avwrap" title="Klik aku!">
+      <div class="avatar" aria-label="Foto profil"><img src="trixi.jpeg" alt="Foto Wulidati Trixiana">WT</div>
+      <span class="sp" aria-hidden="true">✨</span><span class="sp" aria-hidden="true">💖</span><span class="sp" aria-hidden="true">✨</span>
+    </div>
+    <div>
+      <p class="prompt">$ whoami</p>
+      <h1>Wulidati Trixiana</h1>
+      <p>Mahasiswa Teknik Informatika yang sedang belajar menjadi backend engineer.</p>
+      <a class="btn" href="https://github.com/046trixi">GitHub: 046trixi</a>
+      <a class="btn" href="#kontribusi">Bukti commit</a>
+    </div>
+  </header>
+
+  <section id="motivasi">
+    <h2>1. Motivasi Hidup</h2>
+    <p>Saya ingin menjadi backend engineer karena saya tertarik dengan bagaimana sebuah sistem bekerja di balik layar. Selama kuliah, saya ingin memperkuat kemampuan pemrograman dan membangun berbagai proyek agar setelah lulus saya mampu membuat sistem yang benar-benar bermanfaat bagi orang lain.</p>
+  </section>
+
+  <section id="kemampuan">
+    <h2>2. Kemampuan Teknologi</h2>
+    <div class="grid" id="skills"></div>
+    <h3 style="font-family:var(--head);font-size:1rem;margin:20px 0 10px">Sedang dipelajari</h3>
+    <div id="belajar"></div>
+  </section>
+
+  <section id="proyek">
+    <h2>3. Proyek yang Telah Dibuat</h2>
+    <p class="sub"><code>$ ls proyek/</code> — daftar proyek yang sudah saya kerjakan selama belajar.</p>
+    <div id="proyek-list" class="pgrid"></div>
+  </section> -->
+  </section>
+
+  <section id="kontribusi">
+    <h2>4. Bukti Commit</h2>
+    <p><a class="btn" href="https://github.com/046trixi">github.com/046trixi</a></p>
+    <div class="shot">
+      <!-- Ganti dengan: <img src="commits.png" alt="Halaman Commits repositori My Profile"> -->
+      <span>Tangkapan layar halaman Commits repositori My Profile (minimal 3 commit)</span>
+    </div>
+<pre><span class="h">$ git log --oneline -5</span>
+(tempel keluaran git log Anda di sini)</pre>
+  </section>
+
+  <section id="pendidikan">
+    <h2>5. Riwayat Pendidikan</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tahun</th><th>Institusi</th><th>Jurusan</th><th>Pencapaian</th></tr></thead>
+        <tbody id="pendidikan-list"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="identitas">
+    <h2>6. Identitas Pribadi</h2>
+    <dl>
+      <dt>Nama lengkap</dt><dd>Wulidati Trixiana</dd>
+      <dt>Panggilan</dt><dd>trixi</dd>
+      <dt>NIM</dt><dd>2024520046</dd>
+      <dt>Lokasi</dt><dd>Pamekasan, Jawa Timur</dd>
+    </dl>
+  </section>
+
+  <section id="tema">
+    <h2>7–8. Tema Tampilan: Tech Stack</h2>
+    <p>Halaman ini memakai tema Tech Stack karena saya ingin menjadi backend engineer dan terminal terasa dekat dengan pekerjaan itu. Warna pink #FE5BAC menjadi aksen neon di atas latar gelap agar tampilannya tetap khas dan mudah dibaca.</p>
+  </section>
+
+  <footer>
+    <p>Dibuat dengan <span class="beat">♥</span> oleh 046trixi — P1 Pemrograman Platform</p>
+    <p><a href="[tautan video]">Video</a> · <a href="https://github.com/046trixi/My-Profile">Repositori</a></p>
+  </footer>
+</div>
+
+<script>
+/* ==========================================================
+   DATA — EDIT DI SINI SAJA. Halaman akan menyusun sendiri.
+   Tambah item baru = salin satu baris/blok { ... }, lalu tempel
+   di bawahnya (jangan lupa koma di akhir tiap item).
+   ========================================================== */
+
+// tingkat: "Pemula" | "Menengah" | "Mahir" (isi sesuai kemampuan asli)
+const KEMAMPUAN = [
+  { nama: "HTML/CSS",     tingkat: "Menengah" },
+  { nama: "JavaScript",   tingkat: "Pemula" },
+  { nama: "Dart/Flutter", tingkat: "Pemula" },
+  { nama: "Git",          tingkat: "Pemula" },
+  // { nama: "Nama teknologi", tingkat: "Pemula" },
+];
+
+// Teknologi yang belum dikuasai
+const SEDANG_DIPELAJARI = ["Flutter", "Dart", "REST API"];
+
+// Proyek nyata saja (tugas sekolah/kuliah/pribadi). Terbaru di atas.
+// demo boleh dikosongkan "" kalau belum ada (tombolnya otomatis hilang).
+const PROYEK = [
+  {
+    nama: "My Profile",
+    kategori: "Portofolio Pribadi",
+    deskripsi: "Website biodata pertama saya, dibuat untuk memperkenalkan diri sebagai mahasiswa Teknik Informatika. Isinya motivasi, kemampuan, proyek, riwayat pendidikan, dan identitas, dalam tema Tech Stack berwarna pink yang responsif dan punya animasi lucu.",
+    peran: "Pembuat tunggal: desain, kode, dan riwayat commit",
+    teknologi: ["HTML", "CSS", "JavaScript", "Git", "GitHub"],
+    catatan: "",   // opsional: catatan singkat (kosongkan "" kalau tidak perlu)
+    repo: "https://github.com/046trixi/My-Profile",
+    demo: ""       // opsional: tautan demo (kosongkan "" kalau belum ada)
+  },
+  {
+    nama: "Peta Wisata Madura",
+    kategori: "Proyek Web",
+    deskripsi: "Peta Wisata Madura adalah aplikasi web yang menampilkan lokasi tempat-tempat wisata di Pulau Madura pada peta interaktif. Setiap lokasi dilengkapi informasi singkat sehingga wisatawan lebih mudah menemukan dan merencanakan tujuan perjalanan.",
+    //peran: "[isi peran Anda, misalnya Backend Developer]",
+    teknologi: ["[PHP Narative]", "[MySql]", "[Leaflet]", "[Bootstrap 5]"],
+    gambar: "",    // opsional: nama berkas tangkapan layar, misalnya "peta-wisata.png"
+    catatan: "",
+    repo: "",      // isi tautan repositori kalau sudah ada
+    demo: ""
+  },
+  // ===== Proyek baru: hapus "//" di setiap baris, isi data ASLI Anda =====
+  // {
+  //   nama: "Nama proyek",
+  //   kategori: "Tugas Kuliah",      // contoh: Tugas Kuliah / Tugas Sekolah / Proyek Pribadi
+  //   deskripsi: "Dua kalimat: proyek ini apa dan fungsinya.",
+  //   peran: "Peran Anda",
+  //   teknologi: ["Teknologi 1", "Teknologi 2"],
+  //   gambar: "proyek2.png",         // opsional: tangkapan layar (taruh di folder biodata/)
+  //   catatan: "",
+  //   repo: "https://github.com/046trixi/nama-repositori",
+  //   demo: ""
+  // },
+];
+
+// Urut dari terbaru ke terlama
+const PENDIDIKAN = [
+  { tahun: "2024–sekarang", institusi: "Universitas Madura",   jurusan: "Teknik Informatika", capaian: "IPK stabil (target)" },
+  { tahun: "2022–2024",     institusi: "SMAN 3 Pamekasan",     jurusan: "MIPA",               capaian: "Juara 4 volly se-jawa timur" },
+  { tahun: "2019–2021",     institusi: "SMPN 5 Pamekasan",     jurusan: "-",                  capaian: "Siswa Unggulan" },
+  { tahun: "2013-2018",     institusi: "SD Lawangan Daya 2",   jurusan: "-",                  capaian: "Juara 1 Gerak Jalan" },
+];
+
+/* ================= JANGAN UBAH DI BAWAH INI ================= */
+const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LEBAR = { Pemula: 25, Menengah: 60, Mahir: 90 };
+document.getElementById('skills').innerHTML = KEMAMPUAN.map(k =>
+  `<div class="skill"><b>${esc(k.nama)}</b><div class="bar"><i style="width:${LEBAR[k.tingkat] || 25}%"></i></div><span class="lvl">${esc(k.tingkat)}</span></div>`).join('');
+document.getElementById('belajar').innerHTML = SEDANG_DIPELAJARI.map(t => `<span class="badge">${esc(t)}</span>`).join('');
+document.getElementById('proyek-list').innerHTML = PROYEK.map((p, i) => {
+  const no = String(i + 1).padStart(2, '0');
+  return `<article class="pcard">
+    <div class="ptop"><span class="dots"><i></i><i></i><i></i></span><span>proyek_${no}.md</span>${p.kategori ? `<span class="ptag">${esc(p.kategori)}</span>` : ''}</div>
+    ${p.gambar ? `<img class="pshot" src="${esc(p.gambar)}" alt="Tangkapan layar ${esc(p.nama)}" loading="lazy">` : ''}
+    <h3>${esc(p.nama)}</h3>
+    <p>${esc(p.deskripsi)}</p>
+    <p class="lbl" style="margin-bottom:2px">$ peran</p>
+    <p>${esc(p.peran)}</p>
+    <p class="lbl" style="margin-bottom:6px">$ stack</p>
+    <p>${(p.teknologi || []).map(t => `<span class="badge">${esc(t)}</span>`).join('')}</p>
+    ${p.catatan ? `<div class="pnote"># ${esc(p.catatan)}</div>` : ''}
+    <div class="pbtn">
+      ${p.repo ? `<a class="btn" href="${esc(p.repo)}">$ buka repositori →</a>` : ''}
+      ${p.demo ? `<a class="btn" href="${esc(p.demo)}">$ lihat demo →</a>` : ''}
+    </div>
+  </article>`;
+}).join('');
+document.getElementById('pendidikan-list').innerHTML = PENDIDIKAN.map(e =>
+  `<tr><td>${esc(e.tahun)}</td><td>${esc(e.institusi)}</td><td>${esc(e.jurusan)}</td><td>${esc(e.capaian)}</td></tr>`).join('');
+
+  const root = document.documentElement, btn = document.getElementById('theme');
+  // Foto: coba beberapa nama/letak berkas kalau trixi.jpeg tidak ketemu
+  const foto = document.querySelector('.avatar img');
+  if (foto) {
+    const cadangan = ['trixi.jpg', 'Trixi.jpeg', 'Trixi.jpg', 'trixi.png', 'biodata/trixi.jpeg'];
+    foto.addEventListener('error', () => {
+      const n = cadangan.shift();
+      if (n) { foto.src = n; return; }
+      foto.remove();
+      console.warn('Foto tidak ditemukan. Taruh trixi.jpeg satu folder dengan index.html.');
+    });
+  }
+
+  // Bar kemampuan terisi saat terlihat
+  root.classList.add('js');
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.3});
+  document.querySelectorAll('.grid').forEach(g => io.observe(g));
+
+  // Klik foto profil: hati-hati beterbangan
+  document.querySelector('.avwrap').addEventListener('click', ev => {
+    const r = ev.currentTarget.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    ['💖','♥','✨','💕','♥','✨','💗','♥'].forEach(ch => {
+      const s = document.createElement('span');
+      s.className = 'pop'; s.textContent = ch;
+      s.style.left = cx + 'px'; s.style.top = cy + 'px';
+      s.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+      s.style.setProperty('--dy', (-40 - Math.random() * 120) + 'px');
+      s.style.setProperty('--r', (Math.random() * 60 - 30) + 'deg');
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 900);
+    });
+  });
+
+  btn.addEventListener('click', () => {
+    const light = root.dataset.theme !== 'light';
+    root.dataset.theme = light ? 'light' : 'dark';
+    btn.textContent = light ? 'Mode gelap' : 'Mode terang';
+  });
+</script>
+</body>
+</html>
